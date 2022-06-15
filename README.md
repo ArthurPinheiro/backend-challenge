@@ -50,6 +50,10 @@ Para executar a aplicação:
 
     > mvn spring-boot:run
 
+### Swagger
+
+> http://www.localhost:8080/swagger-ui/index.html
+
 ### Docker
 Se desejar usar o docker, é necessário usar dois comandos: 
 

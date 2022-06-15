@@ -8,8 +8,9 @@ import org.junit.jupiter.api.Test
 
 class PasswordServiceImplTest {
 
+    private val passwordPattern: String = "^(?=.*[0-9])(?!.*(.).*\\1.*)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-+])(?=\\S+$).{9,20}$"
     private val factory = PasswordFactory()
-    private val useCaseImpl: PasswordService = PasswordServiceImpl()
+    private val useCaseImpl: PasswordService = PasswordServiceImpl(passwordPattern)
 
     @Test
     fun `should return true`() {

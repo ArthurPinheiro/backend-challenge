@@ -10,12 +10,9 @@ import java.util.regex.Pattern
 
 @Service
 class PasswordServiceImpl(
+    @Value("\${password.regex.regexp:^(?=.*[0-9])(?!.*(.).*\\1.*)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-+])(?=\\S+$).{9,20}$}")
+    private val passwordPattern: String
 ) : PasswordService {
-
-
-    companion object{
-        private val passwordPattern: String = "^(?=.*[0-9])(?!.*(.).*\\1.*)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()-+])(?=\\S+$).{9,20}$"
-    }
 
     override fun execute(password: Password): PasswordResponse {
         val isValid = isValidPassword(password)
